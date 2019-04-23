@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Assessment</title>
+    <!-- <link rel="stylesheet" href="quiz.css"> -->
+    <link rel="stylesheet" href="https://use.typekit.net/jko3rau.css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<style>
+body {
+font-family: montserrat, sans-serif;
+margin:0px;
+/* overflow-y: hidden; */
+}
+a{
+  font-family:Lato, sans-serif;
+  font-weight:400;
+  letter-spacing: 0.5px;
+  text-transform:uppercase;
+  color:#cacaca;
+  font-size:15px;
+  text-decoration:none;
+  padding-bottom: 5px;
+  transition: color 0.3s ease-in-out;
+}
+a:hover{
+  color:#463b5b;
+}
+.bg{
+  position:absolute;
+}
+img{
+  max-width:100%;
+}
+.landingPage{
+position:relative;
+height:100vh;
+}
+#landingTextBlock{
+position: relative;
+padding-left: 56vw;
+padding-top:38vh;
+width:450px;
+height:300px;
+z-index:2;
+}
+#opener{
+position:relative;
+font-weight: 700;
+color:#E85147;
+font-size: 60px;
+/* 120px */
+line-height: 60px;
+padding-top:10px;
+/* 100px */
+}
+.description{
+color:#707070;
+line-height: 25px;
+/* font-size:20px; */
+/* line-height: 35px; */
+}
+#openDescription{
+padding-top: 40px;
+/* 70px */
+}
+#beginButton{
+width:100px;
+height:40px;
+border-radius:90px;
+font-family: Montserrat,sans-serif;
+font-weight:400;
+font-size: 15px;
+background-color: #463b5b;
+border:1px solid #463b5b;
+color:#dadada;
+margin-top:40px;
+z-index:1;
+cursor:pointer;
+}
+#quiz{
+position:relative;
+padding-top:100vh;
+}
+.questionBlock{
+position: static;
+height:100vh;
+padding-top:36vh;
+padding-left:26%;
+}
+.statement{
+position:relative;
+font-family: montserrat, sans-serif;
+font-weight: 500;
+font-size:20px;
+color:#606060;
+line-height:40px;
+text-align:center;
+visibility:visible;
+width:700px;
+}
+.rowDecision{
+position:relative;
+padding-top:30px;
+padding-left: 30px;
+width:640px;
+max-width:640px;
+height:100px;
+}
+.scaleLabel1{
+text-align:left;
+padding-top:20px;
+font-family:Montserrat,sans-serif;
+font-weight:600;
+text-transform:uppercase;
+color:#808080;
+width:100px;
+z-index:-1;
+}
+.scaleLabel2{
+margin-top:-20px;
+padding-right:20px;
+float:right;
+text-align:right;
+font-family:Montserrat,sans-serif;
+font-weight:600;
+text-transform:uppercase;
+color:#808080;
+width:100px;
+}
+.btn-group{
+position:relative;
+display: inline-block;
+margin-left:135px;
+top:-30px;
+z-index:1;
+}
+.btn {
+  display:inline-block;
+  padding: 6px 6px;
+  margin-bottom: 0;
+  margin-right:40px;
+  line-height: 1.42857143;
+  text-align: center;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  border-radius: 150px;
+  z-index:-1;
+}
+[data-toggle=buttons]>.btn>input[type=checkbox], [data-toggle=buttons]>.btn>input[type=radio] {
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
+}
+.max{
+width:30px;
+height:30px;
+vertical-align: middle;
+}
+.med{
+width:20px;
+height:20px;
+vertical-align: middle;
+}
+.mid{
+width:10px;
+height:10px;
+vertical-align: middle;
+}
+.bigDisagree{
+background-color:#ffffff;
+border:3px solid #E85147;
+}
+.bigDisagree:hover,
+.bigDisagree.active{
+background-color:#E85147;
+border:3px solid #E85147;
+}
+.disagree{
+background-color:#ffffff;
+border:3px solid #DB8583;
+}
+.disagree:hover,
+.disagree.active{
+background-color:#DB8583;
+border:3px solid #DB8583;
+}
+.neutral{
+background-color:#ffffff;
+border:3px solid #909090;
+}
+.neutral:hover,
+.neutral.active{
+background-color:#909090;
+border:3px solid #909090;
+}
+.agree{
+background-color:#ffffff;
+border:3px solid #9484AF;
+}
+.agree:hover,
+.agree.active{
+background-color:#9484AF;
+border:3px solid #9484AF;
+}
+.bigAgree{
+background-color:#ffffff;
+border:3px solid #6F46A5;
+}
+.bigAgree:hover,
+.bigAgree.active{
+background-color:#6F46A5;
+border:3px solid #6F46A5;
+}
+.nextButton{
+width:100px;
+height:40px;
+border:1px solid gray;
+background-color:	#F5F5F5;
+font-family:Montserrat,sans-serif;
+font-weight:400;
+border-radius:90px;
+margin-left:305px;
+margin-top:30px;
+cursor:pointer;
+}
+.submitButton{
+width:100px;
+height:40px;
+font-family:Montserrat,sans-serif;
+font-weight:400;
+background-color: #463b5b;
+border:1px solid #463b5b;
+color:#dadada;
+border-radius:90px;
+margin-left:305px;
+margin-top:30px;
+cursor:pointer;
+}
+#results{
+  position:relative;
+  height:100vh;
+}
+.resultPage{
+position:relative;
+height:100vh;
+padding: 0px 0px 50px 0px;
+}
+.result{
+position:relative;
+padding-left:9vw;
+padding-top:25vh;
+margin-top:10%;
+width:550px;
+font-size: 14px;
+line-height:20px;
+}
+.horizontalRule{
+height:1px;
+width:500px;
+position:relative;
+background-color: gray;
+margin-top: 10px;
+}
+.about{
+width:500px;
+position:relative;
+margin-top:10px;
+font-family:Lato, sans-serif;
+font-size:10px;
+font-weight:300;
+color:#909090;
+line-height:15px;
+}
+h2{
+font-weight:700;
+color:#E85147;
+font-size:35px;
+margin-top:10px;
+padding-bottom: 10px;
+padding-top:5px;
+}
+.description{
+margin-top:-20px;
+}
+</style>
+
+
+
+  </head>
+  <body>
+
+<!-- LANDING PAGE -->
+
+<div class="landingPage" id="q0">
+  <div class="bg"><img src="http://www.mediafire.com/convkey/cdc4/6qvsalbc3smegp7zg.jpg" /></div>
+    <div id="landingTextBlock">
+      <div id="returnlink">
+    <a href="https://christinahh.github.io/Homepage/" ><i class="fas fa-caret-left"></i> Return</a></div>
+      <div id="opener">This is an<br />assessment</div>
+        <div class="description" id="openDescription">Please rate each statement according to how well you think it applies to you.</div>
+          <button class="button" id="beginButton" data-next="q1">BEGIN</button>
+    </div>
+</div>
+
+<!-- QUIZ -->
+
+<div id="quiz">
+  <div class="questionBlock block1 slide" id="q1" data-question="block1">
+           <div class="statement">
+               You have a good understanding of who you are.
+           </div>
+           <div class="rowDecision">
+               <div class="scaleLabel1">Disagree</div>
+               <div class="scaleLabel2">Agree</div>
+               <div class="btn-group" data-toggle="buttons">
+                   <label class="btn bigDisagree max" data-value="A"></label>
+
+
+                   <label class="btn disagree med" data-value="B"></label>
+
+
+                   <label class="btn neutral mid" data-value="C"></label>
+
+
+                   <label class="btn agree med" data-value="D"></label>
+
+
+                   <label class="btn bigAgree max" data-value="E"></label>
+
+
+               </div>
+           </div>
+           <button class="button nextButton" data-next="#q2">NEXT</button>
+    </div>
+
+    <div class="questionBlock block2 slide" id="q2" data-question="block2">
+             <div class="statement">
+                 You relish in the unexpected.
+             </div>
+             <div class="rowDecision">
+                 <div class="scaleLabel1">Disagree</div>
+                 <div class="scaleLabel2">Agree</div>
+                 <div class="btn-group" data-toggle="buttons">
+                     <label class="btn bigDisagree max" data-value="A">
+
+                     </label>
+                     <label class="btn disagree med" data-value="B">
+
+                     </label>
+                     <label class="btn neutral mid" data-value="C">
+
+                     </label>
+                     <label class="btn agree med" data-value="D">
+
+                     </label>
+                     <label class="btn bigAgree max" data-value="E">
+
+                     </label>
+                 </div>
+             </div>
+             <button class="button nextButton" data-next="#q3">NEXT</button>
+      </div>
+
+      <div class="questionBlock block3 slide" id="q3" data-question="block3">
+               <div class="statement">
+                   You can accurately predict how you will behave at any given time.
+               </div>
+               <div class="rowDecision">
+                   <div class="scaleLabel1">Disagree</div>
+                   <div class="scaleLabel2">Agree</div>
+                   <div class="btn-group" data-toggle="buttons">
+                       <label class="btn bigDisagree max" data-value="A">
+
+                       </label>
+                       <label class="btn disagree med" data-value="B">
+
+                       </label>
+                       <label class="btn neutral mid" data-value="C">
+
+                       </label>
+                       <label class="btn agree med" data-value="D">
+
+                       </label>
+                       <label class="btn bigAgree max" data-value="E">
+
+                       </label>
+                   </div>
+               </div>
+               <button class="button nextButton" data-next="#q4">NEXT</button>
+        </div>
+
+        <div class="questionBlock block4 slide" id="q4" data-question="block4">
+                 <div class="statement">
+                     You desire assurance about topics you are uncertain of.
+                 </div>
+                 <div class="rowDecision">
+                     <div class="scaleLabel1">Disagree</div>
+                     <div class="scaleLabel2">Agree</div>
+                     <div class="btn-group" data-toggle="buttons">
+                         <label class="btn bigDisagree max" data-value="A">
+
+                         </label>
+                         <label class="btn disagree med" data-value="B">
+
+                         </label>
+                         <label class="btn neutral mid" data-value="C">
+
+                         </label>
+                         <label class="btn agree med" data-value="D">
+
+                         </label>
+                         <label class="btn bigAgree max" data-value="E">
+
+                         </label>
+                     </div>
+                 </div>
+                 <button class="button nextButton" data-next="#q5">NEXT</button>
+          </div>
+
+          <div class="questionBlock block5 slide" id="q5" data-question="block5">
+                   <div class="statement">
+                       You want to become a better person.
+                   </div>
+                   <div class="rowDecision">
+                       <div class="scaleLabel1">Disagree</div>
+                       <div class="scaleLabel2">Agree</div>
+                       <div class="btn-group" data-toggle="buttons">
+                           <label class="btn bigDisagree max" data-value="A">
+
+                           </label>
+                           <label class="btn disagree med" data-value="B">
+
+                           </label>
+                           <label class="btn neutral mid" data-value="C">
+
+                           </label>
+                           <label class="btn agree med" data-value="D">
+
+                           </label>
+                           <label class="btn bigAgree max" data-value="E">
+
+                           </label>
+                       </div>
+                   </div>
+                   <button class="button nextButton" data-next="#q6">NEXT</button>
+            </div>
+
+            <div class="questionBlock block6 slide" id="q6" data-question="block6">
+                     <div class="statement">
+                         You wish there was more to your personality than meets the eye.
+                     </div>
+                     <div class="rowDecision">
+                         <div class="scaleLabel1">Disagree</div>
+                         <div class="scaleLabel2">Agree</div>
+                         <div class="btn-group" data-toggle="buttons">
+                             <label class="btn bigDisagree max" data-value="A">
+
+                             </label>
+                             <label class="btn disagree med" data-value="B">
+
+                             </label>
+                             <label class="btn neutral mid" data-value="C">
+
+                             </label>
+                             <label class="btn agree med" data-value="D">
+
+                             </label>
+                             <label class="btn bigAgree max" data-value="E">
+
+                             </label>
+                         </div>
+                     </div>
+                     <button class="button nextButton" data-next="#q7">NEXT</button>
+              </div>
+
+              <div class="questionBlock block7 slide" id="q7" data-question="block7">
+                       <div class="statement">
+                           You appreciate organization and clarity when it comes<br />to complex topics.
+                       </div>
+                       <div class="rowDecision">
+                           <div class="scaleLabel1">Disagree</div>
+                           <div class="scaleLabel2">Agree</div>
+                           <div class="btn-group" data-toggle="buttons">
+                               <label class="btn bigDisagree max" data-value="A">
+
+                               </label>
+                               <label class="btn disagree med" data-value="B">
+
+                               </label>
+                               <label class="btn neutral mid" data-value="C">
+
+                               </label>
+                               <label class="btn agree med" data-value="D">
+
+                               </label>
+                               <label class="btn bigAgree max" data-value="E">
+
+                               </label>
+                           </div>
+                       </div>
+                       <button class="button nextButton" data-next="#q8">NEXT</button>
+                </div>
+
+                <div class="questionBlock block8 slide" id="q8" data-question="block8">
+                         <div class="statement">
+                             When describing yourself, you exaggerate or downplay<br />some of your characteristics.
+                         </div>
+                         <div class="rowDecision">
+                             <div class="scaleLabel1">Disagree</div>
+                             <div class="scaleLabel2">Agree</div>
+                             <div class="btn-group" data-toggle="buttons">
+                                 <label class="btn bigDisagree max" data-value="A">
+
+                                 </label>
+                                 <label class="btn disagree med" data-value="B">
+
+                                 </label>
+                                 <label class="btn neutral mid" data-value="C">
+
+                                 </label>
+                                 <label class="btn agree med" data-value="D">
+
+                                 </label>
+                                 <label class="btn bigAgree max" data-value="E">
+
+                                 </label>
+                             </div>
+                         </div>
+                         <button class="button nextButton" data-next="#q9">NEXT</button>
+                  </div>
+
+                  <div class="questionBlock block9 slide" id="q9" data-question="block9">
+                           <div class="statement">
+                               You find yourself behaving differently in specific situations, such as<br />at work or among friends.
+                           </div>
+                           <div class="rowDecision">
+                               <div class="scaleLabel1">Disagree</div>
+                               <div class="scaleLabel2">Agree</div>
+                               <div class="btn-group" data-toggle="buttons">
+                                   <label class="btn bigDisagree max" data-value="A">
+
+                                   </label>
+                                   <label class="btn disagree med" data-value="B">
+
+                                   </label>
+                                   <label class="btn neutral mid" data-value="C">
+
+                                   </label>
+                                   <label class="btn agree med" data-value="D">
+
+                                   </label>
+                                   <label class="btn bigAgree max" data-value="E">
+
+                                   </label>
+                               </div>
+                           </div>
+                           <button class="button nextButton" data-next="#q10">NEXT</button>
+                    </div>
+
+                    <div class="questionBlock block10 slide" id="q10" data-question="block10">
+                             <div class="statement">
+                                 You think there are parts of yourself that you don’t fully understand.
+                             </div>
+                             <div class="rowDecision">
+                                 <div class="scaleLabel1">Disagree</div>
+                                 <div class="scaleLabel2">Agree</div>
+                                 <div class="btn-group" data-toggle="buttons">
+                                     <label class="btn bigDisagree max" data-value="A">
+
+                                     </label>
+                                     <label class="btn disagree med" data-value="B">
+
+                                     </label>
+                                     <label class="btn neutral mid" data-value="C">
+
+                                     </label>
+                                     <label class="btn agree med" data-value="D">
+
+                                     </label>
+                                     <label class="btn bigAgree max" data-value="E">
+
+                                     </label>
+                                 </div>
+                             </div>
+                             <button class="button nextButton" data-next="#q11">NEXT</button>
+                      </div>
+
+                      <div class="questionBlock block11 slide" id="q11" data-question="block11">
+                               <div class="statement">
+                                   You would lie about your traits if it meant getting<br />the answer you want.
+                               </div>
+                               <div class="rowDecision">
+                                   <div class="scaleLabel1">Disagree</div>
+                                   <div class="scaleLabel2">Agree</div>
+                                   <div class="btn-group" data-toggle="buttons">
+                                       <label class="btn bigDisagree max" data-value="A">
+
+                                       </label>
+                                       <label class="btn disagree med" data-value="B">
+
+                                       </label>
+                                       <label class="btn neutral mid" data-value="C">
+
+                                       </label>
+                                       <label class="btn agree med" data-value="D">
+
+                                       </label>
+                                       <label class="btn bigAgree max" data-value="E">
+
+                                       </label>
+                                   </div>
+                               </div>
+                               <button class="button nextButton" data-next="#q12">NEXT</button>
+                        </div>
+
+                        <div class="questionBlock block12 slide" id="q12" data-question="block12">
+                                 <div class="statement">
+                                     There are parts of yourself that you are reluctant to confront.
+                                     <!-- reverse question to negative??? -->
+                                 </div>
+                                 <div class="rowDecision">
+                                     <div class="scaleLabel1">Disagree</div>
+                                     <div class="scaleLabel2">Agree</div>
+                                     <div class="btn-group" data-toggle="buttons">
+                                         <label class="btn bigDisagree max" data-value="A">
+
+                                         </label>
+                                         <label class="btn disagree med" data-value="B">
+
+                                         </label>
+                                         <label class="btn neutral mid" data-value="C">
+
+                                         </label>
+                                         <label class="btn agree med" data-value="D">
+
+                                         </label>
+                                         <label class="btn bigAgree max" data-value="E">
+
+                                         </label>
+                                     </div>
+                                 </div>
+                                 <button class="button nextButton" data-next="#q13">NEXT</button>
+                          </div>
+
+                          <div class="questionBlock block13 slide" id="q13" data-question="block13">
+                                   <div class="statement">
+                                       You have a different view and opinion of yourself than others.
+                                   </div>
+                                   <div class="rowDecision">
+                                       <div class="scaleLabel1">Disagree</div>
+                                       <div class="scaleLabel2">Agree</div>
+                                       <div class="btn-group" data-toggle="buttons">
+                                           <label class="btn bigDisagree max" data-value="A">
+
+                                           </label>
+                                           <label class="btn disagree med" data-value="B">
+
+                                           </label>
+                                           <label class="btn neutral mid" data-value="C">
+
+                                           </label>
+                                           <label class="btn agree med" data-value="D">
+
+                                           </label>
+                                           <label class="btn bigAgree max" data-value="E">
+
+                                           </label>
+                                       </div>
+                                   </div>
+                                   <button class="button nextButton" data-next="#q14">NEXT</button>
+                            </div>
+
+                            <div class="questionBlock block14 slide" id="q14" data-question="block14">
+                                     <div class="statement">
+                                         You cherish the commonalities and differences between<br />yourself and others.
+                                     </div>
+                                     <div class="rowDecision">
+                                         <div class="scaleLabel1">Disagree</div>
+                                         <div class="scaleLabel2">Agree</div>
+                                         <div class="btn-group" data-toggle="buttons">
+                                             <label class="btn bigDisagree max" data-value="A">
+
+                                             </label>
+                                             <label class="btn disagree med" data-value="B">
+
+                                             </label>
+                                             <label class="btn neutral mid" data-value="C">
+
+                                             </label>
+                                             <label class="btn agree med" data-value="D">
+
+                                             </label>
+                                             <label class="btn bigAgree max" data-value="E">
+
+                                             </label>
+                                         </div>
+                                     </div>
+                                     <button class="button nextButton" data-next="#q15">NEXT</button>
+                              </div>
+
+                              <div class="questionBlock block15 slide" id="q15" data-question="block15">
+                                       <div class="statement">
+                                           You are not fully content with who you are.
+                                       </div>
+                                       <div class="rowDecision">
+                                           <div class="scaleLabel1">Disagree</div>
+                                           <div class="scaleLabel2">Agree</div>
+                                           <div class="btn-group" data-toggle="buttons">
+                                               <label class="btn bigDisagree max" data-value="A">
+
+                                               </label>
+                                               <label class="btn disagree med" data-value="B">
+
+                                               </label>
+                                               <label class="btn neutral mid" data-value="C">
+
+                                               </label>
+                                               <label class="btn agree med" data-value="D">
+
+                                               </label>
+                                               <label class="btn bigAgree max" data-value="E">
+
+                                               </label>
+                                           </div>
+                                       </div>
+                                       <button class="button submitButton" data-next="#">SUBMIT</button>
+                                </div>
+
+  </div>
+
+  <!-- RESULTS -->
+
+<div id="results">
+
+  <div class="resultPage" id="mostlyBigAgree">
+    <div class="bg"><img src="https://previews.dropbox.com/p/thumb/AAbNekTe_S9H9vBIqKotP1fkqcApUsOAsEWxSAkRtPfP_fXPYC_4vV4NVx5ENMMf1Q6Xt8hn4dZbW2_HS7FVbyKfQZtHvbw-itwbo1klPoo829bQOpkG9mr8Rns4-5R4YwilN5gVSSl7_4UUaFFGwhsMXLb0ewZPxyw03pXViad0crBnZULiIYpbVKxYN2qYdlq8gLv-5qF_rlut49Wb6MTUUy8o5Gdv89gpgQpSba7DyR5N2esiuUCG18xAZwLYv5HWP-tYJ3x7nYpQDB_TP3cTh74_4nVTTBCHglZFNpecoeZs2zTb2-pjXIa2vHbKcla7NBpdNzQDjlHDBYPj7SEN/p.png?size_mode=5" /></div>
+    <div class="result" id="result1">
+     <a href="https://christinahh.github.io/Homepage/"><i class="fas fa-caret-left"></i> Return</a>
+     <h2>House of Mirrors</h2>
+     <div class="description" id="bigAgreeDescription">
+       You are well aware of the subjective view you have of yourself, and don’t <br />shy away from trying to understand and confront it. You find value in <br />seeing your varied reflections and using the information to better <br />understand the person you are.</div>
+     <div class="horizontalRule"></div>
+    <div class="about">
+      This assessment was created with the intention to encourage users to self-reflect and consider the meaning behind their responses to online personality tests. It is meant to encourage critical thought about the results one receives upon completing an online test. Much like this example, they are often self-inventory style questionnaires where input is solely dependent on an individual’s own view of themselves, albeit with the questions pertaining to specific psychological theories. The results typically involve the presentation of a series of traits and behaviours, all organized under either an archetype or percentages on various binary scales.
+    </div>
+    </div>
+  </div>
+
+  <div class="resultPage" id="mostlyAgree">
+    <div class="bg"><img src="https://previews.dropbox.com/p/thumb/AAaSZaJWTXXxpFhyx_Nk6d00csRuZHlEW1yy1IiBLAEjSLGEp4nmF0KJdFgP_9lIpJGXeH1MC_E-gTGWQOBNi_evX9dLpenXVskvCHfC86zckZc3RJRWyMB5pM7yz_XeNnMRmtf41zDaiBTQLlrZlVHXevtoUdFJFGnc63-8NrYWRx3HWIntDzFdb_HC96Bjph9PKg-4S7EsDD7qnz8OaTjf7tEy-emLQQChI0kgWFzGbXYHUzAPa4RJKsoOr7qS93yUWXoEPwAha6k1pvLxzplJQ2Etr2yioXxhxLGq4HJoFZz1jEK_5bBA2FhEpS9rZKMukk5EIQFklAga10gwSrZZ/p.png?size=2048x1536&size_mode=3" /></div>
+    <div class="result" id="result2">
+     <a href="https://christinahh.github.io/Homepage/"><i class="fas fa-caret-left"></i> Return</a>
+     <h2>The Looking Glass</h2>
+     <div class="description" id="agreeDescription">
+       You want to better understand the person you are and continue to acknowledge your subjectivity, which may well be the catalyst to <Br />achieving your goal. Whether through online assessments or <br />independent self-reflection, the feedback loop between your true <Br />self and described self is worth considering.</div>
+     <div class="horizontalRule"></div>
+    <div class="about">
+      This assessment was created with the intention to encourage users to self-reflect and consider the meaning behind their responses to online personality tests. It is meant to encourage critical thought about the results one receives upon completing an online test. Much like this example, they are often self-inventory style questionnaires where input is solely dependent on an individual’s own view of themselves, albeit with the questions pertaining to specific psychological theories. The results typically involve the presentation of a series of traits and behaviours, all organized under either an archetype or percentages on various binary scales.
+    </div>
+    </div>
+  </div>
+
+  <div class="resultPage" id="mostlyNeutral">
+    <div class="bg"><img src="https://previews.dropbox.com/p/thumb/AAYueHTI4bBhO-ae56g7g10DAq55Fv9bIM7OQixUPmcm5Aj1mxQgt2SRN0iFblFQ65Dstij603FGPtjr_N09lLhNSpkRjUD9PJuDa7xl687FeAn-C0M7BFBS2AZjs4rgMF-BFJppOrvGxYgFKu-T9nmg9PXRHAjYq2zSA6aKyuBPMPbe0vqY0QN8rNDUk_hsKnbQPgwK85kEGT2YjclEVkMULgnmJyH5meMN7QfEKUP6REwPdsfGfVqS7ltoc9OIFbyZkUuaDM_9mbLHHd-oW4D_n-k_1-VlmjUPYoHhklfvn_stUMHceuJBRzhwE6qA-7q95WyEXHevcQva1Gv9oNnb/p.png?size=2048x1536&size_mode=3" /></div>
+    <div class="result" id="result3">
+     <a href="https://christinahh.github.io/Homepage/"><i class="fas fa-caret-left"></i> Return</a>
+     <h2>Middle of the Road</h2>
+     <div class="description" id="neutralDescription">
+       The good of uncertainty is that there is plenty of room for opportunity. <br />You are unsure of exactly how much you self-reflect on who you are, or <Br />where you stand on the subject of questioning your perceived self, but <br />rest assured that there is plenty of time to think on it.</div>
+     <div class="horizontalRule"></div>
+    <div class="about">
+      This assessment was created with the intention to encourage users to self-reflect and consider the meaning behind their responses to online personality tests. It is meant to encourage critical thought about the results one receives upon completing an online test. Much like this example, they are often self-inventory style questionnaires where input is solely dependent on an individual’s own view of themselves, albeit with the questions pertaining to specific psychological theories. The results typically involve the presentation of a series of traits and behaviours, all organized under either an archetype or percentages on various binary scales.
+    </div>
+    </div>
+  </div>
+
+  <div class="resultPage" id="mostlyDisagree">
+    <div class="bg"><img src="https://previews.dropbox.com/p/thumb/AAZLqVhALbmqHe-Z4nvmnypDwU_F7-Ot7UMWmu9bVuQD9eKNpXBjA4jg3UpLnqfzwnfLBFTxQKss31GAkKAaTq9ARo5myyCfhjlZl6DhX8WQKhUQ58hRJjcOr6H-XsjDvxrFMOf0Ii6l5Rvv1XsfePjp_jcpWfmjDdAFbqf6wdXxllCB0FzPThOBmkuiGzDxD5B5c14_HVBVaEPUa8VlebPBrI1mjWhAPOIo0xmYZDFOFWSea2s1xeHUvWAffF7YcKR88Y1lb_epySGrwMdQaQ_CSWGeSuxkSDmP0e7ekrLHvZ3uhNkEzonKa1R5qCkSHVkKy3-K63eM9b6ICnMBTORW/p.png?size=2048x1536&size_mode=3" /></div>
+    <div class="result" id="result4">
+     <a href="https://christinahh.github.io/Homepage/"><i class="fas fa-caret-left"></i> Return</a>
+     <h2>Pursuit of Knowledge</h2>
+     <div class="description" id="neutralDescription">
+       Straightforward answers can be satisfying to receive, as can a second <Br />opinion that assures you of your own. You are relatively secure and <br />confident about the view you have of yourself, but further questioning <br />that view could lead to an even greater degree of personal understanding.</div>
+     <div class="horizontalRule"></div>
+    <div class="about">
+      This assessment was created with the intention to encourage users to self-reflect and consider the meaning behind their responses to online personality tests. It is meant to encourage critical thought about the results one receives upon completing an online test. Much like this example, they are often self-inventory style questionnaires where input is solely dependent on an individual’s own view of themselves, albeit with the questions pertaining to specific psychological theories. The results typically involve the presentation of a series of traits and behaviours, all organized under either an archetype or percentages on various binary scales.
+    </div>
+    </div>
+  </div>
+
+  <div class="resultPage" id="mostlyBigDisagree">
+    <div class="bg"><img src="https://previews.dropbox.com/p/thumb/AAZGpiIctThqDQOdyWLFvl0WqIxyGqRy7ASPKKRHrDx7vF69M6jAE7ldj7lAo1qcl1IYMVDoSTUpjLEJoeLzGNWVXO1LywTqN0NudMi1ZPBvlU20aA1cixfttorjUpufhrYK90rbLEMvs37N2lLnenUdU6OJLPorVpwXWdfubhSdh5wnBEwCMNdSV2UrArgELkwiMivvAsdaFaO8ZEqXXHGGCb_4R8KWqzzn4ZPveaL2QwsXmR8YX6FEVvWC6ZhfV63dRXhqtBA-QYSCYVLduKV9hoOAP6jyIkR-wQDf4Of0pm7PvQ5ahNPjwVwZjxJcSctCp0S__uDvcdmVmtzQOxrw/p.png?size=2048x1536&size_mode=3" /></div>
+    <div class="result" id="result4">
+     <a href="https://christinahh.github.io/Homepage/"><i class="fas fa-caret-left"></i> Return</a>
+     <h2>A Familiar Face</h2>
+     <div class="description" id="neutralDescription">
+       You value facts and clear, concise answers to topics that may otherwise <br />be deemed complex, and place a great deal of trust in yourself. Taking <br />the time to critically examine your opinions regarding your persona may strengthen that self-trust and offer you new questions to find new answers.</div>
+     <div class="horizontalRule"></div>
+    <div class="about">
+      This assessment was created with the intention to encourage users to self-reflect and consider the meaning behind their responses to online personality tests. It is meant to encourage critical thought about the results one receives upon completing an online test. Much like this example, they are often self-inventory style questionnaires where input is solely dependent on an individual’s own view of themselves, albeit with the questions pertaining to specific psychological theories. The results typically involve the presentation of a series of traits and behaviours, all organized under either an archetype or percentages on various binary scales.
+    </div>
+    </div>
+  </div>
+
+
+
+</div>
+
+
+
+<!-- JAVASCRIPT -->
+
+  </body>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-scrollTo/2.1.2/jquery.scrollTo.min.js"></script>
+  <!-- <script type="text/javascript" src="quiz.js"></script> -->
+  <script>
+  $(document).ready(function(){  //SCROLL TO TOP OF PAGE ON REFRESH
+      $(window).scrollTop(0);
+  })
+  $("#beginButton").click(function(){
+     $(window).scrollTo("#q1",0.5)
+   })
+  $(".nextButton").click(function(){ //when you click on button with class nextButton
+    nq = $(this).attr("data-next"); //grabbing custom attr data-next and loading it into variable nq
+    $(document).scrollTo(nq,0.5) //scroll to that variable
+  })
+  var answers = [0,0,0,0,0] //make array that sets all answer values at 0
+  $("label").click(function(){ //when click on label element
+    var blockNum = "."+$(this).closest(".questionBlock").attr("data-question"); //select the label, select closest parent with class qustionBlock, grab the value of custom attribute data-question
+    var oldVal = $(blockNum+" label.active").attr("data-value"); //
+      $(blockNum+" label.active").removeClass("active"); //first remove the custom class active to any label that has it
+      $(this).addClass("active") //then you add it to this specific label
+      var newVal = $(blockNum+" label.active").attr("data-value");
+      if (newVal == "A") {
+        answers[0] = answers[0]+1;
+      } else if (newVal == "B") {
+        answers[1] = answers[1]+1;
+      } else if (newVal == "C") {
+        answers[2] = answers[2]+1;
+      } else if (newVal == "D") {
+        answers[3] = answers[3]+1;
+      } else if (newVal == "E") {
+        answers[4] = answers[4]+1;
+      }
+      if (oldVal == "A") {
+        answers[0] = answers[0]-1;
+      } else if (oldVal == "B") {
+        answers[1] = answers[1]-1;
+      } else if (oldVal == "C") {
+        answers[2] = answers[2]-1;
+      } else if (oldVal == "D") {
+        answers[3] = answers[3]-1;
+      } else if (oldVal == "E") {
+        answers[4] = answers[4]-1;
+      }
+  })
+  $(".submitButton").click(function(){
+     var topResult = Math.max(...answers);
+     if (topResult == answers[0]) {
+       $(window).scrollTo("#mostlyBigDisagree",0.5);
+     } else if (topResult == answers[1]) {
+       $(window).scrollTo("#mostlyDisagree",0.5);
+     } else if (topResult == answers[2]) {
+       $(window).scrollTo("#mostlyNeutral",0.5);
+     } else if (topResult == answers[3]) {
+       $(window).scrollTo("#mostlyAgree",0.5);
+     } else if (topResult == answers[4]) {
+       $(window).scrollTo("#mostlyBigAgree",0.5);
+     }
+  });
+</script>
+
+</html>
